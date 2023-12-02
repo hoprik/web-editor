@@ -7,16 +7,26 @@ let task = {
     }
 }
 
-let complite = []
-
 const next = "" //java script write please
 
 
 setInterval(()=>{
-    Object.values(task["html"]).forEach(e=>{
-        document.querySelectorAll(e.element).forEach(elem=>{
+    Object.keys(task["html"]).forEach(key=>{
+        const taskEmlem = task["html"][key]
+        document.querySelector(".render").querySelectorAll(taskEmlem.element).forEach(elem=>{
+            if ("class" in taskEmlem){
+                if (elem.classList.contains(taskEmlem["class"])){
+                    alert("hi")
+                    delete task["html"][key]
+                    if (Object.values(task["html"]).length == 0){
+                        
+                    }
+                }
+            }
         })
     })
 }, 1000)
+
+
 
 // on development stage
